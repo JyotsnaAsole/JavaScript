@@ -224,8 +224,140 @@ if ( 11 === '11') {            // It is comparing data types also
     console.log('They are not same')    // not same
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------------
 
+//JSON -> JavaScript Object Notation
+// stringify() -> Convert ArrayOfObjects into JSON (a function used to display array of objects)
 
-    
+const jsonData= JSON.stringify(employee) // employee-> array of objects
+console.log(jsonData)    // Keys are also enclosed in doble quote (Property name is in "")
 
+// parse() -> Convert JSON into ArrayOfObjects
  
+const arrayOfObject = JSON.parse(jsonData)   // jsonData -> JSON Object
+console.log(arrayOfObject)   //simply ArrayOfObjects
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+//to understand the scope of a const, var and let varibles
+// age >30 ? half the age : double the age 
+const Age = 30
+if( Age > 30){
+    let newAge = Age/2 // let has a local scope and const also has a local scope
+    console.log(newAge)
+}else{
+    var newAge = Age*2 // var has a global scope
+    console.log(newAge)
+} 
+console.log(newAge)
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Loops ->
+// Basic loops :- for() and while()
+// for (initialization; condition; inc/dec )
+ for( let i=1; i<=15; i++){
+ console.log('value of i : ' + i)
+ }
+
+ //Table of 5
+ for (let i =5; i<=50; i++){
+     console.log(`5 * ${i/5} = ${i}`)
+ }
+
+ // while Loop
+// initialization
+// while ( condition ) {
+//     inc / dec
+// }  
+
+let i=1
+while(i<=10){
+    console.log(`The value of i : ${i}`)
+    i++
+}
+
+//print table of 12 
+let j = 12
+while( j <= 120) {
+    console.log(`12 * ${j/12} = ${j}`)
+    j += 12
+}
+//---------------------------------------------------------------------------------
+// higher order Array Methods -> for-of, for-in, map, filter, reduce
+// Array of Objects
+const todos = [
+    {
+        id : 1,
+        task : 'Meeting with the team',
+        isCompleted : true
+    },
+    {
+        id : 2,
+        task : 'Take out the Trash',
+        isCompleted : false
+    },
+    {
+        id : 3,
+        task : 'Take my dog for a walk',
+        isCompleted : true
+    }
+]
+
+console.log('length of an array :' + todos.length) // length of an array
+
+const fruits = ['Apple' , 'Mango' , 'Banana', 'Pear', 'Watermelon']
+console.log('Length = ' + fruits.length)
+
+console.log(todos[0].task)
+console.log(todos[1].task)
+console.log(todos[2].task)
+ 
+ for(let i = 0; i < todos.length; i++){
+     console.log(todos[i].id = todos[i].id +5)
+ }
+
+// Higher order array methods are used only in two conditions :-
+// 1. When you are iterating on the whole array
+// 2. When you are not using something like this -  array[index]
+
+//for-of---. for (let local-variable of array-name)
+for( let i of todos) {                  // for( let todo of todos) single is todo and todos are multiple (we can take another, it is just a variable name)
+    console.log(i.isCompleted)          // console.log(todo.isCompleted)
+}
+// print only those tasks whose isCompleted is true
+for( let todo of todos ) {
+    todo.isCompleted === true ? console.log(todo.task) : ''      // if true then print else do nothing 
+}
+ //same thing with simple for loop :-
+// for( let i = 0; i < todos.length; i++) {
+//     if(todos[i].isCompleted === true) {
+//         console.log(todos[i].task)
+//     } else {
+//         console.log('')
+//     }
+// }
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// *** Functions in JavaScript ***
+// function -> Re-usable block of code that u can use anywhere in the code
+
+// Two ways of creating function in JavaScript
+// 1. Traditional Way
+// 2. ES6 Way - new &bMost popular
+
+// First Way --> function functionName (parameters) { ....bodyOfFunction  }
+function greet(name) {
+    console.log(`Happy rakashabandhan ${name}`)
+}
+
+greet('Jiya')         // calling function (default type of parameter is object and return type of function is also an object by default)
+
+function add(a, b) {
+    return ( a + b)
+}
+
+console.log(`value is : ` + add(15, 20))
+const result = add(100, 200)
+console.log('Addition is = ' + result)    // either u can use '' / ""  or  `` / if u r using backquote(``) the u have to use ${} symbol to print the value of a variable.
